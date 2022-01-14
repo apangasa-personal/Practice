@@ -2,31 +2,25 @@ package scaler;
 
 public class LittlePonnyAnd2Subsequence {
     public static String solve(String A) {
-        char smallest = ' ', smaller = ' ';
-        if(A.charAt(0) > A.charAt(1)){
-            smallest = A.charAt(1);
-            smaller = A.charAt(0);
+        int smallest = Integer.MIN_VALUE, smaller = Integer.MIN_VALUE;
+        for(int i = 0; i< A.length(); i++){
+            if(smallest == Integer.MIN_VALUE)
+                smallest = i;
+            else if(A.charAt(i) < A.charAt(smallest) && i!= A.length() - 1){
+                smallest = i;
+                smaller = Integer.MIN_VALUE;
+            }
+            else if(smaller == Integer.MIN_VALUE)
+                smaller = i;
+            else{
+                if(A.charAt(i) < A.charAt(smaller))
+                    smaller = i;
+            }
         }
-        else{
-            smallest = A.charAt(0);
-            smaller = A.charAt(1);
-        }
-        for(int i = 2; i< A.length(); i++){
-          if(A.charAt(i) < smallest){
-              smaller = smallest;
-              smallest = A.charAt(i);
-          }
-          else if(A.charAt(i) < smaller){
-              smaller = A.charAt(i);
-          }
-        }
-        if(A.indexOf(smallest) < A.indexOf(smaller))
-            return String.valueOf(smallest) + smaller;
-        else
-            return String.valueOf(smaller) + smallest;
+        return (A.charAt(smallest) +"" + A.charAt(smaller));
     }
     public static void main(String[] args){
-        String A = "djjhibvetj";
+        String A = "scsecugqsb";
         System.out.println(solve(A));
     }
 }

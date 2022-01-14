@@ -30,4 +30,15 @@ public class CompareVersion {
         String B = "4444444444444444444444444";
         System.out.println(compareVersion(A,B));
     }
+
+    /**
+    Arrays.sort(A, new Comparator()<String>{
+
+        @Override
+        public int compare(String a, String b){
+            String v1 = a+b;
+            String v2 = b+a;
+            return v1.compareTo(v2) ? -1:1
+    }});
+     **/
 }
