@@ -96,6 +96,7 @@ public class LinkedList {
         return;
     }
 
+
     public static void main(String[] args){
         insert_node(1,226);
         insert_node(2,875);
