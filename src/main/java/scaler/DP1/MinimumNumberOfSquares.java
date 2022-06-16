@@ -1,4 +1,4 @@
-package scaler;
+package scaler.DP1;
 
 public class MinimumNumberOfSquares {
     public static void countMinSquares(int A, int[] ways) {

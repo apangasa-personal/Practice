@@ -25,27 +25,23 @@ public class MinimumLargestElement {
     }
     public static int solve(int[] A, int B) {
         PriorityQueue<Node> heap = new PriorityQueue(new NodeValueComparator());
-        int max = Integer.MIN_VALUE;
+        int[] newValues = new int[A.length];
         for(int i = 0; i < A.length; i++) {
-            Node newNode = new Node(A[i], i);
-            heap.offer(newNode);
-            max = Math.max(max, A[i]);
+            heap.offer(new Node(A[i] * 2, i));
+            newValues[i] = A[i] * 2;
         }
-        int i = 0;
-        while(i< B && heap.size() > 0){
-            Node newNode = heap.poll();
-            newNode.val = newNode.val + A[newNode.index];
-            i++;
-            while(i < B && newNode.val < max) {
-                newNode.val = newNode.val + A[newNode.index];
-                i++;
-            }
-            max = Math.max(max, newNode.val);
-            heap.offer(newNode);
+
+        while (B > 1){
+            Node current = heap.poll();
+            current.val += A[current.index];
+            newValues[current.index] = current.val;
+            heap.offer(current);
+            B--;
         }
-        while (heap.size() > 1)
-            heap.poll();
-        return heap.poll().val;
+        int max = Integer.MIN_VALUE;
+        for(int i = 0; i < newValues.length; i++)
+            max = Math.max(max, newValues[i]);
+        return max;
     }
 
     public static void main(String[] args) {

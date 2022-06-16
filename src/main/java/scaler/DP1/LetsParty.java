@@ -1,4 +1,4 @@
-package scaler;
+package scaler.DP1;
 
 public class LetsParty {
     static int[] ways;

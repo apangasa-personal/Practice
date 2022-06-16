@@ -1,4 +1,4 @@
-package scaler;
+package scaler.DP1;
 
 public class Fibo {
     public static void fibo(int num){

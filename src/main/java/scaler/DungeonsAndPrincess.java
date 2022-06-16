@@ -1,27 +1,38 @@
 package scaler;
 
 public class DungeonsAndPrincess {
-    public static int calculateMinimumHP(int[][] A) {
-        for(int i = 1; i < A.length; i++)
-            A[i][0] = A[i][0] + A[i-1][0];
+    public static int calculateMinimumHPCore(int[][] A, int[][] visited, int m, int n){
+        if(m >= A.length || n >= A[0].length)
+            return Integer.MAX_VALUE;
 
-        for(int i = 1; i < A.length; i++)
-            A[0][i] = A[0][i] + A[0][i-1];
+        if(visited[m][n] != 0)
+            return visited[m][n];
 
-        for(int i = 1; i < A.length; i++){
-            for(int j = 1; j < A[0].length; j++){
-                A[i][j] += Math.max(A[i-1][j], A[i][j-1]);
-            }
+
+        int right = calculateMinimumHPCore(A, visited, m+1, n);
+        int bottom = calculateMinimumHPCore(A, visited, m, n+1);
+        if(A[m][n] > Math.min(right, bottom)) {
+            visited[m][n] = 1;
         }
-        return A[A.length][A[0].length] + 1;
+        else
+            visited[m][n] = Math.min(right, bottom) - A[m][n];
+        if(visited[m][n] == 0)
+            visited[m][n] = 1;
+        return visited[m][n];
+
+    }
+    public static int calculateMinimumHP(int[][] A) {
+        int[][] energy = new int[A.length][A[0].length];
+        energy[A.length - 1][A[0].length - 1] = 1 - Math.min(0, A[A.length - 1][A[0].length - 1]);
+        return calculateMinimumHPCore(A, energy, 0, 0);
     }
 
     public static void main(String[] args) {
         int[][] A = {
-                {-2, -3, 3},
-                {-5, -10, 1},
-                {10, 30, -5}
+                {0,0,0},
+                {1,1,-1}
+//                {10, 30, -5}
         };
-        calculateMinimumHP(A);
+        System.out.println(calculateMinimumHP(A));
     }
 }
