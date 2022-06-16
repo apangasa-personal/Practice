@@ -1,4 +1,4 @@
-package scaler.LLD.Bird;
+package scaler.LLD.SOLIDPrinciples.Bird;
 
 public class PigeonFlyingBehavior extends FlyingBehavior implements FlyingBehaviorInterface{
     @Override

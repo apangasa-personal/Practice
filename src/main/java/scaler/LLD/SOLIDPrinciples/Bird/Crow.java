@@ -1,4 +1,4 @@
-package scaler.LLD.Bird;
+package scaler.LLD.SOLIDPrinciples.Bird;
 
 public class Crow extends Bird implements CanEat, FlyableBird, MakeSound{
     FlyingBehavior flyingBehavior;

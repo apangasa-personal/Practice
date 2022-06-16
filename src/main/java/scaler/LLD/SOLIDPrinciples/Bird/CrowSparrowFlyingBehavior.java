@@ -1,4 +1,4 @@
-package scaler.LLD.Bird;
+package scaler.LLD.SOLIDPrinciples.Bird;
 
 public class CrowSparrowFlyingBehavior extends FlyingBehavior implements FlyingBehaviorInterface{
     @Override

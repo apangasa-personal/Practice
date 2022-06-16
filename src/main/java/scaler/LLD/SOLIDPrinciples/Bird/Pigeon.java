@@ -1,4 +1,4 @@
-package scaler.LLD.Bird;
+package scaler.LLD.SOLIDPrinciples.Bird;
 
 public class Pigeon extends Bird implements CanEat, FlyableBird, MakeSound{
     FlyingBehavior flyingBehavior;

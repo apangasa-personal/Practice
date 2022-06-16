@@ -1,4 +1,4 @@
-package scaler.LLD.Bird;
+package scaler.LLD.SOLIDPrinciples.Bird;
 
 public class Ostrich extends Bird implements CanEat, MakeSound{
     FlyingBehavior flyingBehavior;
