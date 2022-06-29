@@ -1,8 +1,6 @@
 package leetCode;
 
-import scaler.CopyList;
-
-    public class CloneList {
+public class CloneList {
         static class Node {
             int val;
             Node next;

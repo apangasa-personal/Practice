@@ -1,7 +1,5 @@
 package leetCode;
 
-import scaler.LinkedList;
-
 public class MergeTwoSortedList {
 
     public static class ListNode {

@@ -1,9 +1,5 @@
 package leetCode;
 
-import scaler.LinkedList;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Stack;
 
 public class ll {
